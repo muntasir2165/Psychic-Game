@@ -6,20 +6,28 @@
 }*/
 
 body {
-	background-color: #000000;
-	color: #ffffff;
+	background: url(../images/letters.jpg) center center no-repeat fixed #464646;
+
+    /*This is what makes the background image rescale based on the container's size
+    Use vendor prefixes to support different browsers*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    color: #ffffff;
 }
 
 .game-statistics {
-	font-size: 100px;
+	/*font-size: 30px;*/
 	font-family: "Comic Sans MS", "Comic Sans", cursive;
 	border-radius: 15px;
 }
 
-#win-statistics {
-	background: #00a951;
+#win-statistics, #loss-statistics {
+	/*font-size: 50px;*/
 }
 
-#loss-statistics {
-	background: #a90006;
+#game-instructions {
+	text-decoration: underline;
 }

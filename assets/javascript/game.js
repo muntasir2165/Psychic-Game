@@ -1,5 +1,5 @@
 // generate an array of English alphabet characters
-var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+var alphabetArray = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 
 // object containing the state of the game
 var gameState = {"wins": 0,
@@ -11,21 +11,26 @@ var gameState = {"wins": 0,
 function playGame() {
 	initializeGameState();
 	document.onkeyup = function(event) {
-		console.log(event);
-		var pressedKey = event.key;
-		if (gameState.remainingGuesses <= 1) {
-			gameState.losses++;
-			provideGameFeedback("lose");
-			playGame();
-		} else if (pressedKey === gameState.chosenLetter) {
+		var pressedKey = event.key.toUpperCase();
+		if (pressedKey === gameState.chosenLetter) {
 			gameState.wins++;
-			provideGameFeedback("win");
+			updateGameState();
+			setTimeout(provideGameFeedback("win"), 500);
 			playGame();
+		} else if (gameState.guessedLetters.indexOf(pressedKey) > -1) {
+				setTimeout(provideGameFeedback("duplicate", pressedKey), 500);
+		} else if (alphabetArray.indexOf(pressedKey) === -1) {
+			console.log("Ignoring the non-alphabetic key on the keyboard that was pressed");
 		} else {
 			gameState.guessedLetters.push(pressedKey);
 			gameState.remainingGuesses--;
+			updateGameState();
+			if (gameState.remainingGuesses <= 0) {
+				setTimeout(provideGameFeedback("loss"), 500);
+				gameState.losses++;
+				playGame();
+			}
 		}
-		updateGameState();
 	}
 }
 
@@ -34,7 +39,7 @@ playGame();
 // initialize game state
 function initializeGameState() {
 	// choose a random letter from the alphabet
-	gameState.chosenLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+	gameState.chosenLetter = alphabetArray[Math.floor(Math.random() * alphabetArray.length)];
 	// console.log the chosen letter (for debugging and perhaps cheating purposes!)
 	console.log("chosen leter: " + gameState.chosenLetter);
 	gameState.remainingGuesses = 9;
@@ -54,21 +59,27 @@ function updateGameState() {
 	lettersGuessed.innerHTML = "";
 
 	gameState.guessedLetters.forEach(function(guessedLetter){
-		lettersGuessed.innerHTML += guessedLetter + ", ";
+		lettersGuessed.innerHTML += guessedLetter + " ";
 	});
 }
 
-// string parameter values:
+// acceptable string parameter values for the provideGameFeedback function:
 	// "win": the player won the game
-	// "lose": the player lost the game
-function provideGameFeedback(status) {
+	// "loss": the player lost the game
+	// "duplicate": the player has already guessed the passed in letter
+function provideGameFeedback(status, letter) {
 	var gameFeedback = document.getElementById("game-feedback");
 	switch (status) {
 		case "win":
 			alert("You have successfully guessed the letter: " + gameState.chosenLetter);
 			break;
-		case "lose":
-			alert("You failed to correctly guessed the letter: " + gameState.chosenLetter);
+		case "loss":
+			alert("You failed to correctly guess the letter: " + gameState.chosenLetter);
+			break;
+		case "duplicate":
+			if (letter) {
+				alert("You have already guessed the letter: " + letter);
+			}
 			break;
 	}
 }
