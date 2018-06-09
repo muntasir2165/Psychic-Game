@@ -41,7 +41,7 @@ function initializeGameState() {
 	// choose a random letter from the alphabet
 	gameState.chosenLetter = alphabetArray[Math.floor(Math.random() * alphabetArray.length)];
 	// console.log the chosen letter (for debugging and perhaps cheating purposes!)
-	console.log("chosen leter: " + gameState.chosenLetter);
+	console.log("Chosen leter: " + gameState.chosenLetter);
 	gameState.remainingGuesses = 9;
 	gameState.guessedLetters = [];
 	updateGameState();
