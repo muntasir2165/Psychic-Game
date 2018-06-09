@@ -4,3 +4,21 @@
 	border-style: solid;
 	border-color: red;
 }*/
+
+body {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.game-statistics {
+	font-size: 100px;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+#win-statistics {
+	background: #00a951;
+}
+
+#loss-statistics {
+	background: #a90006;
+}

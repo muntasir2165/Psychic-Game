@@ -1,9 +1,6 @@
 // generate an array of English alphabet characters
 var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-// thee variable containing the guessed letter
-// var randomLetter = "";
-
 // object containing the state of the game
 var gameState = {"wins": 0,
 "remainingGuesses": 9,
@@ -38,11 +35,11 @@ playGame();
 function initializeGameState() {
 	// choose a random letter from the alphabet
 	gameState.chosenLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+	// console.log the chosen letter (for debugging and perhaps cheating purposes!)
 	console.log("chosen leter: " + gameState.chosenLetter);
 	gameState.remainingGuesses = 9;
 	gameState.guessedLetters = [];
 	updateGameState();
-	// provideGameFeedback("");
 }
 
 // update the state of the game and display it in the user interface
@@ -55,16 +52,13 @@ function updateGameState() {
 	remainingGuesses.innerHTML = gameState.remainingGuesses;
 	var lettersGuessed = document.getElementById("letters-guessed");
 	lettersGuessed.innerHTML = "";
-	// for (var i = 0;  i < gameState.remainingGuesses.length; i++) {
- //  		// someFn(arr[i]);
-	// }
+
 	gameState.guessedLetters.forEach(function(guessedLetter){
 		lettersGuessed.innerHTML += guessedLetter + ", ";
 	});
-	// provideGameFeedback("");
 }
 
-// acceptable string parameters:
+// string parameter values:
 	// "win": the player won the game
 	// "lose": the player lost the game
 function provideGameFeedback(status) {
