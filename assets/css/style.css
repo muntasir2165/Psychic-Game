@@ -13,6 +13,7 @@ body {
 .game-statistics {
 	font-size: 100px;
 	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	border-radius: 15px;
 }
 
 #win-statistics {
