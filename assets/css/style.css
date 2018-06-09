@@ -24,10 +24,6 @@ body {
 	border-radius: 15px;
 }
 
-#win-statistics, #loss-statistics {
-	/*font-size: 50px;*/
-}
-
 #game-instructions {
 	text-decoration: underline;
 }
