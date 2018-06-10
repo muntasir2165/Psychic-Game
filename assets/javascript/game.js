@@ -68,7 +68,6 @@ function updateGameState() {
 	// "loss": the player lost the game
 	// "duplicate": the player has already guessed the passed in letter
 function provideGameFeedback(status, letter) {
-	var gameFeedback = document.getElementById("game-feedback");
 	switch (status) {
 		case "win":
 			alert("You have successfully guessed the letter: " + gameState.chosenLetter);
