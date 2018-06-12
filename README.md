@@ -12,7 +12,7 @@ Either download the zipped project from GitHub or clone the repo into your local
 
 ## Getting Help
 
-If help is needed to understand something in the game or just to provide feedback/suggestion, please send an email to muntasir2165@hotmail.com
+If help is needed to understand something in the game or just to provide feedback/suggestion, please send an email to [Muntasir Biojid] muntasir2165@hotmail.com
 
 ## Author
 
