@@ -4,7 +4,7 @@ A browser-based JavaScript game where the player has to guess the letter in the 
 
 ## Project Motivation
 
-This game was developed as part of an introductory JavaScript homework assignment in the University of Toronto Full Stack Web Development bootcamp. This project is a testament to the mastery of fundamental JavaScript concepts (variables, conditionals, loops, objects, functions and many more) that resulted in a game that is simple yet powerful and fun to play. It also goes to show how simple programming concepts can be coupled together to create a great product.
+This game was developed as part of an introductory JavaScript homework assignment at the University of Toronto Full Stack Web Development bootcamp. This project is a testament to the mastery of fundamental JavaScript concepts (variables, conditionals, loops, objects, functions and many more) that resulted in a game that is simple yet powerful and fun to play. It also goes to show how simple programming concepts can be coupled together to create a great product.
 
 ## Getting Started
 
